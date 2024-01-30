@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Particle from './Particle'; // Import your Particle component
 import Type from './Type'; // Import your Type component
 import Home2 from './Home2'; // Import your Home2 component
+import { addNftToWallet } from '../../api';
 
 function Home() {
   const [formData, setFormData] = useState({
@@ -10,12 +11,16 @@ function Home() {
     email: '',
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = async(e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
+    //  addNftToWallet logic
+    // const assetId = "803c53";
+    // const result = await addNftToWallet({ email, assetId });
+    // console.log("result: ", result);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
